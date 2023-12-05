@@ -1,9 +1,7 @@
 resource "aws_instance" "github-actions-project" {
   ami  = "ami-0fc5d935ebf8bc3bc"
   instance_type = "t3.xlarge"
-  subnet_id = "subnet-0b790859db11a06b7"
   key_name = "N.Verginia"
-  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
   user_data = templatefile("./user_data.sh", {})
   tags = {
     Name = "github-actions-project"
@@ -43,4 +41,11 @@ resource "aws_security_group" "jenkins-sg" {
   tags = {
     Name = "Jenkins-sg"
   }
+}
+
+output "public_ip" {
+  value = aws_instance.github-actions-project.public_ip
+}
+output "public_dns" {
+  value = aws_instance.github-actions-project.public_dns
 }
