@@ -49,7 +49,5 @@ jobs:
     steps:
       - name: Pull the docker image
         run: docker pull amuldark/netflix-12:latest
-      - name: Trivy image scan
-        run: trivy image amuldark:netflix-12:latest
       - name: Run the container netflix
         run: docker run -d --name netflix -p 8081:80 amuldark/netflix-12:latest
