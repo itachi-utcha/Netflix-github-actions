@@ -1,7 +1,7 @@
 resource "aws_instance" "github-actions-project" {
   ami  = "ami-0fc5d935ebf8bc3bc"
   instance_type = "t3.xlarge"
-  key_name = "N.Verginia"
+  key_name = "Pro"
   user_data = templatefile("./user_data.sh", {})
   tags = {
     Name = "github-actions-project"
