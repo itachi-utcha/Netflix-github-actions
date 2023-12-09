@@ -30,3 +30,4 @@ yarn-error.log*
 .terraform/
 .terraform.lock.hcl
 .terraform.tfstate 
+.DS_STORE
